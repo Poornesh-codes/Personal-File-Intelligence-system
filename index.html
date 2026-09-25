@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FileMind | Personal File Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📚</span>
+            <h2>FileMind</h2>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>📁</span>
+                My Files
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>🤖</span>
+                AI Chat
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>📝</span>
+                Summaries
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>🏷️</span>
+                Tags
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>🕘</span>
+                History
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>🚪</span>
+                Logout
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top bar -->
+        <header class="topbar">
+
+            <div class="search-box">
+                <span>🔍</span>
+                <input
+                    type="text"
+                    placeholder="Search your documents..."
+                >
+            </div>
+
+            <div class="profile">
+                <div class="profile-avatar">
+                    O
+                </div>
+
+                <div>
+                    <p class="profile-name">Omkar</p>
+                    <p class="profile-role">Student</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="welcome">
+                <div>
+                    <h1>Welcome back, Omkar 👋</h1>
+
+                    <p>
+                        Manage, search and understand your documents
+                        with your personal AI assistant.
+                    </p>
+                </div>
+
+                <button class="upload-button"
+                onclick="window.location.href='upload.html'">
+                    + Upload Document
+                </button>
+            </div>
+
+
+            <!-- Statistics -->
+            <div class="stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+
+                    <div>
+                        <p>Total Files</p>
+                        <h2>24</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">💾</div>
+
+                    <div>
+                        <p>Storage Used</p>
+                        <h2>1.2 GB</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏷️</div>
+
+                    <div>
+                        <p>Tags</p>
+                        <h2>12</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Recent Documents -->
+            <section class="documents-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Recent Documents</h2>
+                        <p>Your recently uploaded files</p>
+                    </div>
+
+                    <button class="view-all">
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="documents-list">
+
+                    <div class="document-card">
+
+                        <div class="file-icon pdf">
+                            PDF
+                        </div>
+
+                        <div class="file-info">
+                            <h3>DSA Module 1.pdf</h3>
+                            <p>2.4 MB • Uploaded today</p>
+                        </div>
+
+                        <div class="file-tag">
+                            DSA
+                        </div>
+
+                        <button class="more-button">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document-card">
+
+                        <div class="file-icon pdf">
+                            PDF
+                        </div>
+
+                        <div class="file-info">
+                            <h3>DBMS Module 2.pdf</h3>
+                            <p>3.1 MB • Uploaded yesterday</p>
+                        </div>
+
+                        <div class="file-tag">
+                            DBMS
+                        </div>
+
+                        <button class="more-button">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document-card">
+
+                        <div class="file-icon docx">
+                            DOCX
+                        </div>
+
+                        <div class="file-info">
+                            <h3>OOP Java Notes.docx</h3>
+                            <p>1.8 MB • Uploaded 2 days ago</p>
+                        </div>
+
+                        <div class="file-tag">
+                            Java
+                        </div>
+
+                        <button class="more-button">
+                            ⋮
+                        </button>
+
+                    </div>
+
+
+                    <div class="document-card">
+
+                        <div class="file-icon txt">
+                            TXT
+                        </div>
+
+                        <div class="file-info">
+                            <h3>Python Revision.txt</h3>
+                            <p>45 KB • Uploaded 3 days ago</p>
+                        </div>
+
+                        <div class="file-tag">
+                            Python
+                        </div>
+
+                        <button class="more-button">
+                            ⋮
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AI Assistant -->
+            <section class="ai-card">
+
+                <div class="ai-content">
+
+                    <div class="ai-icon">
+                        🤖
+                    </div>
+
+                    <div>
+                        <h2>Ask your documents</h2>
+
+                        <p>
+                            Ask questions and get answers from
+                            information inside your files.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="ai-button">
+                    Open AI Assistant →
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
+```
