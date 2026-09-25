@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f6f7fb;
+
+    color: #202124;
+}
+
+
+.upload-page {
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.upload-header {
+    height: 75px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+}
+
+
+.logo {
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+
+.back-button {
+    text-decoration: none;
+
+    color: #4f46e5;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.upload-container {
+    width: 800px;
+
+    max-width: 90%;
+
+    margin: 50px auto;
+}
+
+
+.page-title {
+    margin-bottom: 30px;
+}
+
+
+.page-title h1 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.page-title p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   DROP AREA
+========================= */
+
+.drop-area {
+    background: white;
+
+    border: 2px dashed #c7c9d1;
+
+    border-radius: 14px;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+
+.drop-area.dragover {
+    border-color: #4f46e5;
+
+    background: #f5f5ff;
+}
+
+
+.upload-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.drop-area h2 {
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+
+.drop-area p {
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+
+.browse-button {
+    border: none;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.browse-button:hover {
+    background: #4338ca;
+}
+
+
+.supported {
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    color: #999 !important;
+}
+
+
+/* =========================
+   SELECTED FILES
+========================= */
+
+.selected-section {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-top: 25px;
+}
+
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title h2 {
+    font-size: 18px;
+}
+
+
+.section-title span {
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+.empty-message {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FILE ITEM
+========================= */
+
+.file-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+
+.file-type {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+
+.pdf {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+.docx {
+    background: #dbeafe;
+
+    color: #2563eb;
+}
+
+
+.txt {
+    background: #dcfce7;
+
+    color: #16a34a;
+}
+
+
+.file-details {
+    flex: 1;
+}
+
+
+.file-details h3 {
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.file-details p {
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+.remove-file {
+    border: none;
+
+    background: transparent;
+
+    color: #dc2626;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   UPLOAD BUTTON
+========================= */
+
+.upload-files-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.upload-files-button:disabled {
+    background: #c7c9d1;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .upload-header {
+        padding: 0 20px;
+    }
+
+    .upload-container {
+        margin-top: 30px;
+    }
+
+    .drop-area {
+        padding: 40px 20px;
+    }
+
+}
+
+/* =================================
+   PROCESSING CARD
+================================= */
+
+.processing-card {
+    padding: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    background: #fafafa;
+}
+
+
+.processing-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.processing-info {
+    flex: 1;
+}
+
+
+.processing-info h3 {
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.processing-info p {
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+.processing-top strong {
+    font-size: 13px;
+
+    color: #4f46e5;
+}
+
+
+/* Progress background */
+
+.progress-background {
+    height: 8px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 15px;
+}
+
+
+/* Progress bar */
+
+.progress-bar {
+    height: 100%;
+
+    background: #4f46e5;
+
+    border-radius: 10px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* =================================
+   SUCCESS
+================================= */
+
+.success-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 10px;
+}
+
+
+.success-icon {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+.success-card h3 {
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.success-card p {
+    color: #666;
+
+    font-size: 13px;
+}

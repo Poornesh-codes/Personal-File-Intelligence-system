@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Documents | FileMind</title>
+
+    <link rel="stylesheet" href="upload.css">
+</head>
+
+<body>
+
+    <div class="upload-page">
+
+        <!-- Header -->
+
+        <header class="upload-header">
+
+            <div class="logo">
+                📚 FileMind
+            </div>
+
+            <a href="index.html" class="back-button">
+                ← Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- Main -->
+
+        <main class="upload-container">
+
+            <div class="page-title">
+
+                <h1>Upload Documents</h1>
+
+                <p>
+                    Add your notes, syllabus, question papers and
+                    other academic documents.
+                </p>
+
+            </div>
+
+
+            <!-- Upload Box -->
+
+            <div class="drop-area" id="dropArea">
+
+                <div class="upload-icon">
+                    📤
+                </div>
+
+                <h2>
+                    Drag & Drop your files here
+                </h2>
+
+                <p>
+                    or
+                </p>
+
+                <button
+                    class="browse-button"
+                    id="browseButton"
+                >
+                    Browse Files
+                </button>
+
+                <p class="supported">
+                    Supported formats: PDF, DOCX, TXT
+                </p>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    multiple
+                    accept=".pdf,.docx,.txt"
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- Selected files -->
+
+            <section class="selected-section">
+
+                <div class="section-title">
+
+                    <h2>Selected Files</h2>
+
+                    <span id="fileCount">
+                        0 files
+                    </span>
+
+                </div>
+
+
+                <div id="fileList">
+
+                    <div class="empty-message">
+                        No files selected yet.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Upload button -->
+
+            <button
+                id="uploadFilesButton"
+                class="upload-files-button"
+                disabled
+            >
+                Upload Documents
+            </button>
+
+
+            <!-- Message -->
+
+            <div
+                id="message"
+                class="message"
+            ></div>
+
+        </main>
+
+    </div>
+
+
+    <script src="upload.js"></script>
+
+</body>
+
+</html>
