@@ -31,7 +31,7 @@ Open the `frontend/index.html` file using **Live Server** in VS Code.
 The frontend will usually run at:
 
 ```text
-http://127.0.0.1:5500
+http://127.0.0.1:3000
 ```
 
 ### Run Both
