@@ -34,7 +34,7 @@ fileInput.addEventListener("change", function () {
 });
 
 
-// ========================================
+// =======================================
 // DRAG AND DROP
 // ========================================
 
@@ -139,7 +139,11 @@ function isValidFile(file) {
 
 }
 
-
+// message
+function showMessage(text, type = "info") {
+    message.textContent = text;
+    message.className = `message ${type}`;
+}
 // ========================================
 // DISPLAY FILES
 // ========================================
@@ -304,102 +308,81 @@ uploadFilesButton.addEventListener(
 // UPLOAD PROCESS
 // ========================================
 
-function startUploadProcess() {
+async function startUploadProcess() {
+    const token = localStorage.getItem("token");
 
-    // Disable controls
+    if (!token) {
+        showMessage("Please login before uploading files.", "error");
+        return;
+    }
+
     uploadFilesButton.disabled = true;
-    browseButton.disabled = true;
 
-    fileInput.disabled = true;
+    try {
+        for (let i = 0; i < selectedFiles.length; i++) {
+            await processFile(selectedFiles[i], i);
+        }
 
+        finishUpload();
 
-    // Process each file
-    processFile(0);
+    } catch (error) {
+        console.error(error);
 
+        showMessage(
+            error.message || "Upload failed",
+            "error"
+        );
+
+        uploadFilesButton.disabled = false;
+    }
 }
+
 
 
 // ========================================
 // PROCESS FILE
 // ========================================
 
-function processFile(index) {
+async function processFile(file, index) {
 
-    if (index >= selectedFiles.length) {
+    const totalFiles = selectedFiles.length;
 
-        finishUpload();
-
-        return;
-
-    }
-
-
-    const file =
-        selectedFiles[index];
-
-
-    showProcessingUI(
-        file,
-        "Uploading document...",
-        20
+    showMessage(
+        `Uploading ${file.name} (${index + 1}/${totalFiles})...`,
+        "info"
     );
 
+    const formData = new FormData();
 
-    // Step 1
-    setTimeout(function () {
+    formData.append("file", file);
 
-        showProcessingUI(
-            file,
-            "Uploading document...",
-            45
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+        "http://localhost:5000/api/documents/upload",
+        {
+            method: "POST",
+
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+
+            body: formData
+        }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.message || `Failed to upload ${file.name}`
         );
+    }
 
-    }, 700);
-
-
-    // Step 2
-    setTimeout(function () {
-
-        showProcessingUI(
-            file,
-            "Extracting text...",
-            65
-        );
-
-    }, 1400);
-
-
-    // Step 3
-    setTimeout(function () {
-
-        showProcessingUI(
-            file,
-            "Indexing document...",
-            85
-        );
-
-    }, 2100);
-
-
-    // Step 4
-    setTimeout(function () {
-
-        showProcessingUI(
-            file,
-            "Document ready ✓",
-            100
-        );
-
-    }, 2800);
-
-
-    // Process next file
-    setTimeout(function () {
-
-        processFile(index + 1);
-
-    }, 3300);
-
+    console.log(
+        `Uploaded successfully: ${file.name}`,
+        data
+    );
 }
 
 
