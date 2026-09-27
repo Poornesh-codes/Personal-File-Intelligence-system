@@ -13,7 +13,7 @@
 
 <body>
 
-    
+    <!-- Sidebar -->
     <aside class="sidebar">
 
         <div class="logo">
@@ -56,6 +56,7 @@
         </nav>
 
         <div class="sidebar-bottom">
+
             <a href="#" class="nav-item">
                 <span>⚙️</span>
                 Settings
@@ -65,6 +66,7 @@
                 <span>🚪</span>
                 Logout
             </a>
+
         </div>
 
     </aside>
@@ -73,26 +75,46 @@
     <!-- Main Content -->
     <main class="main-content">
 
-        <!-- Top bar -->
+        <!-- Top Bar -->
         <header class="topbar">
 
             <div class="search-box">
+
                 <span>🔍</span>
+
                 <input
                     type="text"
                     placeholder="Search your documents..."
                 >
+
             </div>
 
+
+            <!-- Profile -->
             <div class="profile">
-                <div class="profile-avatar">
-                    O
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
                 </div>
 
                 <div>
-                    <p class="profile-name">Omkar</p>
-                    <p class="profile-role">Student</p>
+
+                    <p
+                        class="profile-name"
+                        id="profileName"
+                    >
+                        User
+                    </p>
+
+                    <p class="profile-role">
+                        Student
+                    </p>
+
                 </div>
+
             </div>
 
         </header>
@@ -101,53 +123,101 @@
         <!-- Dashboard -->
         <section class="dashboard">
 
+
+            <!-- Welcome -->
             <div class="welcome">
+
                 <div>
-                    <h1>Welcome back, Omkar 👋</h1>
+
+                    <h1 id="welcomeMessage">
+                        Welcome back 👋
+                    </h1>
 
                     <p>
                         Manage, search and understand your documents
                         with your personal AI assistant.
                     </p>
+
                 </div>
 
-                <button class="upload-button"
-                onclick="window.location.href='upload.html'">
+
+                <button
+                    class="upload-button"
+                    onclick="window.location.href='upload.html'"
+                >
                     + Upload Document
                 </button>
+
             </div>
 
 
             <!-- Statistics -->
             <div class="stats">
 
+
+                <!-- Total Files -->
                 <div class="stat-card">
-                    <div class="stat-icon">📄</div>
+
+                    <div class="stat-icon">
+                        📄
+                    </div>
 
                     <div>
-                        <p>Total Files</p>
-                        <h2>24</h2>
+
+                        <p>
+                            Total Files
+                        </p>
+
+                        <h2 id="totalFiles">
+                            0
+                        </h2>
+
                     </div>
+
                 </div>
 
 
+                <!-- Storage -->
                 <div class="stat-card">
-                    <div class="stat-icon">💾</div>
+
+                    <div class="stat-icon">
+                        💾
+                    </div>
 
                     <div>
-                        <p>Storage Used</p>
-                        <h2>1.2 GB</h2>
+
+                        <p>
+                            Storage Used
+                        </p>
+
+                        <h2 id="storageUsed">
+                            0 KB
+                        </h2>
+
                     </div>
+
                 </div>
 
 
+                <!-- Tags -->
                 <div class="stat-card">
-                    <div class="stat-icon">🏷️</div>
+
+                    <div class="stat-icon">
+                        🏷️
+                    </div>
 
                     <div>
-                        <p>Tags</p>
-                        <h2>12</h2>
+
+                        <p>
+                            Tags
+                        </p>
+
+                        <h2 id="totalTags">
+                            0
+                        </h2>
+
                     </div>
+
                 </div>
 
             </div>
@@ -159,9 +229,17 @@
                 <div class="section-header">
 
                     <div>
-                        <h2>Recent Documents</h2>
-                        <p>Your recently uploaded files</p>
+
+                        <h2>
+                            Recent Documents
+                        </h2>
+
+                        <p>
+                            Your recently uploaded files
+                        </p>
+
                     </div>
+
 
                     <button class="view-all">
                         View all →
@@ -170,94 +248,15 @@
                 </div>
 
 
-                <div class="documents-list">
+                <!-- Documents will be loaded by dashboard.js -->
+                <div
+                    class="documents-list"
+                    id="documentsList"
+                >
 
-                    <div class="document-card">
-
-                        <div class="file-icon pdf">
-                            PDF
-                        </div>
-
-                        <div class="file-info">
-                            <h3>DSA Module 1.pdf</h3>
-                            <p>2.4 MB • Uploaded today</p>
-                        </div>
-
-                        <div class="file-tag">
-                            DSA
-                        </div>
-
-                        <button class="more-button">
-                            ⋮
-                        </button>
-
-                    </div>
-
-
-                    <div class="document-card">
-
-                        <div class="file-icon pdf">
-                            PDF
-                        </div>
-
-                        <div class="file-info">
-                            <h3>DBMS Module 2.pdf</h3>
-                            <p>3.1 MB • Uploaded yesterday</p>
-                        </div>
-
-                        <div class="file-tag">
-                            DBMS
-                        </div>
-
-                        <button class="more-button">
-                            ⋮
-                        </button>
-
-                    </div>
-
-
-                    <div class="document-card">
-
-                        <div class="file-icon docx">
-                            DOCX
-                        </div>
-
-                        <div class="file-info">
-                            <h3>OOP Java Notes.docx</h3>
-                            <p>1.8 MB • Uploaded 2 days ago</p>
-                        </div>
-
-                        <div class="file-tag">
-                            Java
-                        </div>
-
-                        <button class="more-button">
-                            ⋮
-                        </button>
-
-                    </div>
-
-
-                    <div class="document-card">
-
-                        <div class="file-icon txt">
-                            TXT
-                        </div>
-
-                        <div class="file-info">
-                            <h3>Python Revision.txt</h3>
-                            <p>45 KB • Uploaded 3 days ago</p>
-                        </div>
-
-                        <div class="file-tag">
-                            Python
-                        </div>
-
-                        <button class="more-button">
-                            ⋮
-                        </button>
-
-                    </div>
+                    <p>
+                        Loading documents...
+                    </p>
 
                 </div>
 
@@ -274,15 +273,20 @@
                     </div>
 
                     <div>
-                        <h2>Ask your documents</h2>
+
+                        <h2>
+                            Ask your documents
+                        </h2>
 
                         <p>
                             Ask questions and get answers from
                             information inside your files.
                         </p>
+
                     </div>
 
                 </div>
+
 
                 <button class="ai-button">
                     Open AI Assistant →
@@ -290,11 +294,15 @@
 
             </section>
 
+
         </section>
 
     </main>
 
+
+    <!-- Dashboard JavaScript -->
+    <script src="dashboard.js"></script>
+
 </body>
 
 </html>
-```

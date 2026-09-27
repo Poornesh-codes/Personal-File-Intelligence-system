@@ -640,3 +640,20 @@ body {
 
 }
 
+.document-card {
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-2px);
+}
+
+.document-card.document-opening {
+    transform: scale(0.98);
+    opacity: 0.7;
+    box-shadow:
+        0 0 0 2px rgba(80, 120, 255, 0.35);
+}
