@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://filemind-backend-vvxh.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
     loadUser();
