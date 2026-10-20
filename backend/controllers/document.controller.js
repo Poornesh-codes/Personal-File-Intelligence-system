@@ -2,6 +2,7 @@ const path = require("path");
 
 const Document = require("../models/Document");
 const extractText = require("../services/textExtraction.services");
+const chunkText = require("../services/textChunking.services");
 
 /* 
    UPLOAD DOCUMENT
@@ -19,6 +20,7 @@ const uploadDocument = async (req, res) => {
 
         const file = req.file;
         const extractedText = await extractText(file.path);
+        const chunks = chunkText(extractedText);
 
         const document = await Document.create({
 
@@ -33,7 +35,8 @@ const uploadDocument = async (req, res) => {
             fileSize: file.size,
 
             uploadedBy: req.user.id,
-            extractedText
+            extractedText,
+            chunks
 
         });
 
