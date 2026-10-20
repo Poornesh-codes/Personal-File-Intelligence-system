@@ -71,38 +71,49 @@ const uploadDocument = async (req, res) => {
    GET USER DOCUMENTS
  */
 
+
 const getDocuments = async (req, res) => {
+  try {
+    const search = (req.query.search || "").trim();
 
-    try {
+    // Only search the logged-in user's documents.
+    const filter = {
+      uploadedBy: req.user.id
+    };
 
-        const documents =
-            await Document.find({
-                uploadedBy: req.user.id
-            })
-            .sort({
-                createdAt: -1
-            });
+    if (search) {
+      // Treat search input as plain text, not a regex pattern.
+      const escapedSearch = search.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+      );
 
+      const searchRegex = new RegExp(escapedSearch, "i");
 
-        res.status(200).json({
-            documents
-        });
-
-
-    } catch (error) {
-
-        console.error(
-            "Get documents error:",
-            error.message
-        );
-
-        res.status(500).json({
-            message: "Server error"
-        });
-
+      filter.$or = [
+        { originalName: searchRegex },
+        { extractedText: searchRegex },
+        { chunks: searchRegex }
+      ];
     }
 
+    const documents = await Document.find(filter)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({ documents });
+  } catch (error) {
+    console.error("Get documents error:", error.message);
+
+    res.status(500).json({
+      message: "Server error"
+    });
+  }
 };
+
+
+
+
+
 
 
 
