@@ -1,34 +1,35 @@
+
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
+
+const uploadDir = path.join(__dirname, "..", "uploads");
+
+// Ensure the upload directory exists
+fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, uploadDir);
   },
 
   filename: function (req, file, cb) {
     const uniqueName =
       Date.now() +
       "-" +
-      Math.round(Math.random() * 1E9) +
-      path.extname(file.originalname);
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname).toLowerCase();
 
     cb(null, uniqueName);
   }
 });
 
 const upload = multer({
-  storage: storage,
+  storage,
 
   fileFilter: function (req, file, cb) {
-    const allowedExtensions = [
-      ".pdf",
-      ".docx",
-      ".txt"
-    ];
-
-    const extension =
-      path.extname(file.originalname).toLowerCase();
+    const allowedExtensions = [".pdf", ".docx", ".txt"];
+    const extension = path.extname(file.originalname).toLowerCase();
 
     if (allowedExtensions.includes(extension)) {
       cb(null, true);

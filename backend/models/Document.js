@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const documentSchema = new mongoose.Schema(
@@ -31,6 +32,16 @@ const documentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true
+    },
+
+    extractedText: {
+      type: String,
+      default: ""
+    },
+
+    chunks: {
+      type: [String],
+      default: []
     }
   },
   {
