@@ -42,6 +42,16 @@ const documentSchema = new mongoose.Schema(
     chunks: {
       type: [String],
       default: []
+    },
+
+    summary: {
+      type: String,
+      default: ""
+    },
+
+    tags: {
+      type: [String],
+      default: []
     }
   },
   {

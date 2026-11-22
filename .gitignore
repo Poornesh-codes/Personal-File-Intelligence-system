@@ -1,2 +1,21 @@
-logs
+# Dependency directories
+node_modules/
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs and debug
+logs/
+*.log
+
+# Editor and OS files
 .vscode/
+.DS_Store
+Thumbs.db
+
+# Uploads
+uploads/
+backend/uploads/
